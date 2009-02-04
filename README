@@ -1,0 +1,16 @@
+This is a sample Rails gallery application developed by Alex Young (alexyoung.org) for a Linux Format tutorial.
+
+It has:
+
+* Simple photo management with some ajax editing
+* Comments
+* User management
+
+It's locked to Rails 2.1.1 right now, which is close to the version of Rails released when the tutorial came out.
+
+
+I've left my working data in there for you to play with, so login with:
+
+admin/test
+
+

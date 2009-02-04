@@ -1,0 +1,55 @@
+<h2><% in_place_editor_if current_user, @photo, :title do %><%= h @photo.title %><% end %></h2>
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>
+
+<div class="large_photo"><%= image_tag @photo.public_filename %></div>
+
+<p>
+  <b>Description:</b>
+  <p><% in_place_editor_if current_user, @photo, :description do %><%= textilize_without_paragraph h(@photo.description) %><% end %></p>
+</p>
+
+<p>
+  <b>Filename:</b>
+  <%=h @photo.filename %>
+</p>
+
+<p>
+  <b>Content type:</b>
+  <%=h @photo.content_type %>
+</p>
+
+<p>
+  <b>Size:</b>
+  <%=h @photo.size %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @photo.user_id %>
+</p>
+
+<p>
+  <b>Width:</b>
+  <%=h @photo.width %>
+</p>
+
+<p>
+  <b>Height:</b>
+  <%=h @photo.height %>
+</p>
+
+
+<h2>Comments</h2>
+
+<%= render :partial => 'comments/comment', :collection => @photo.comments %>
+
+<% if current_user %>
+  <h3>Post a comment</h3>
+  <%= render :partial => 'comments/new' %>
+<% else %>
+  <h3>Login required</h3>
+  <p>Please <%= link_to 'login', new_session_url %> or <%= link_to 'register', new_user_url %> to post a comment.</p>
+<% end %>
+

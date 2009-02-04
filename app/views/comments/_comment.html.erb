@@ -1,0 +1,5 @@
+<div class="comment">
+  <h3>Posted by <%= h comment.user.login %> on <%= comment.created_at.to_s(:short) %></h3>
+  <h4><%=h comment.title %></h4>
+  <p><%=h comment.body %></p>
+</div>

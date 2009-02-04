@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>My Gallery</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :all %>
+</head>
+<body>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<div id="navigation">
+  <% if current_user %>
+    <%= link_to 'Logout', session_url, :method => 'delete' %> |
+  <% else %>
+    <%= link_to 'Login', new_session_url %> | <%= link_to 'Register', new_user_url %> |
+  <% end %>
+  
+  <%= link_to 'All Photos', photos_url %> | <%= link_to 'New Photo', new_photo_path %>
+</div>
+
+<div id="content">
+<%= yield  %>
+</div>
+
+</body>
+</html>

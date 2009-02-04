@@ -1,0 +1,12 @@
+<div class="photo">
+  <h2>
+    <% in_place_editor_if current_user, photo, :title do %><%= h photo.title %><% end %>
+    <%= link_to 'Edit', edit_photo_path(photo) %>
+    <%= link_to 'Delete', photo, :confirm => 'Are you sure?', :method => :delete %>
+  </h2>
+  <h3>Added on <%= photo.created_at.to_date.to_s :long %></h3>
+  
+  <%= link_to image_tag(photo.public_filename(:thumb)), photo %>
+  
+  <p><% in_place_editor_if current_user, photo, :description do %><%= textilize_without_paragraph h(photo.description) %><% end %></p>
+</div>
